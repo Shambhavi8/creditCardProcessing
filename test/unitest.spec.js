@@ -15,7 +15,7 @@ describe('cardProcessing test', function () {
 		expect(result).to.equal(JSON.stringify({ Tom: '$400' }));
 	});
 
-	it('result should shold show correct balance, that is less than the limit for a single user', function () {
+	it('result should show correct balance, that is, less than the limit for a single user', function () {
 		result = creditCardProcessor([
 			'Add Tom 4111111111111111 $1000',
 			'Charge Tom $500',
@@ -29,7 +29,7 @@ describe('cardProcessing test', function () {
 		expect(result).to.equal(JSON.stringify({ Tom: '$800' }));
 	});
 
-	it('result should shold show error balance, as the card doesnot pass luhn-10 check', function () {
+	it('result should show error balance, as the card doesnot pass luhn-10 check', function () {
 		result = creditCardProcessor([
 			'Add Tom 4111111111111110 $1000',
 			'Charge Tom $500',
@@ -43,7 +43,7 @@ describe('cardProcessing test', function () {
 		expect(result).to.equal(JSON.stringify({ Tom: 'error' }));
 	});
 
-	it('result should shold show correct balance, that is negative balannce for a single user', function () {
+	it('result should show correct balance, that is, negative balance for a single user', function () {
 		result = creditCardProcessor([
 			'Add Tom 4111111111111111 $1000',
 			'Charge Tom $500',
@@ -57,7 +57,7 @@ describe('cardProcessing test', function () {
 		expect(result).to.equal(JSON.stringify({ Tom: '$-100' }));
 	});
 
-	it('result should shold show zero balance after complex operations for single user', function () {
+	it('result should show zero balance after complex operations for single user', function () {
 		result = creditCardProcessor([
 			'Add Tom 4111111111111111 $1000',
 			'Charge Tom $500',
